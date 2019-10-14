@@ -33,6 +33,7 @@
     self.linesData = nil;
 }
 
+//计算range
 - (void)calcDataValueRange {
     if (self.displayNumber <= 0) {
         return;
@@ -42,7 +43,7 @@
     
     CCFloat maxValue = 0;
     CCFloat minValue = CCIntMax;
-    
+    //算均线数据
     for (CCInt i = [self.linesData count] - 1; i >= 0; i--) {
         CCSTitledLine *line = [self.linesData objectAtIndex:i];
         

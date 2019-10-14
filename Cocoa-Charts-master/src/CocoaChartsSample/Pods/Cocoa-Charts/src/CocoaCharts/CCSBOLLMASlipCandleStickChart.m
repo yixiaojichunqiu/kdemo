@@ -46,7 +46,7 @@
     self.bollingerBandStyle = CCSBollingerBandStyleLane;
 }
 
-
+//计算range
 - (void)calcDataValueRange {
     if (self.displayNumber <= 0) {
         return;
@@ -57,6 +57,7 @@
     CCFloat maxValue = 0;
     CCFloat minValue = CCIntMax;
 
+    //算布林数据
     for (CCInt i = [self.bollingerBandData count] - 1; i >= 0; i--) {
         CCSTitledLine *line = [self.bollingerBandData objectAtIndex:i];
         //获取线条数据
@@ -80,6 +81,7 @@
 
     }
 
+    //父类 先算 算完后 本类再算
     if (self.minValue > minValue) {
         self.minValue = minValue;
     }

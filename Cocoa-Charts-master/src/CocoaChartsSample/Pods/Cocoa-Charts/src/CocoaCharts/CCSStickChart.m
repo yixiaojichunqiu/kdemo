@@ -57,7 +57,7 @@
     self.autoCalcRange = YES;
 }
 
-- (void)calcDataValueRange1 {
+- (void)calcDataValueRange {
     
     
     CCFloat maxValue = 0;
@@ -164,7 +164,7 @@
     if (self.stickData != NULL && [self.stickData count] > 0) {
 
         //计算数据的真实范围
-        [self calcDataValueRange1];
+        [self calcDataValueRange];
 
         //计算数据的真实范围
         [self calcValueRangePaddingZero];

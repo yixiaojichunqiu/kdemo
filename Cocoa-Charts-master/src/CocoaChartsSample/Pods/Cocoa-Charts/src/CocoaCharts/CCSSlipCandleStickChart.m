@@ -66,6 +66,7 @@
 
 }
 
+//计算range 没调父类 算蜡烛数据 区间内的最大最小值
 - (void)calcDataValueRange {
     if (self.displayNumber <= 0) {
         return;
@@ -74,11 +75,12 @@
     CCFloat maxValue = 0;
     CCFloat minValue = CCIntMax;
     
-    //判断显示为方柱或显示为线条
+    
+    //NSLog(@"%d",self.displayFrom);
     for (CCUInt i = self.displayFrom; i < [self getDisplayTo]; i++) {
         CCSCandleStickChartData *stick = [self.stickData objectAtIndex:i];
         if (stick.open == 0 && stick.high == 0 && stick.low == 0) {
-            //停盘期间计算收盘价
+            //停盘期间计算收盘价 目前没这样的数据 这种数据没有输入
             if (stick.close > 0) {
                 if (stick.close < minValue) {
                     minValue = stick.close;
