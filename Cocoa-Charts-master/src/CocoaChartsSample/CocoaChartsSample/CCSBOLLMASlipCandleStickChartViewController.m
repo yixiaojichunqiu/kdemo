@@ -3099,15 +3099,18 @@
 
     candleStickChart.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
-    //设置stickData
+    //设置stickData 蜡烛
     candleStickChart.stickData = candlestickData;
+    //ma5 ma10
     candleStickChart.linesData = linesdata;
+    //bol up down
     candleStickChart.bollingerBandData = bollBanddata;
-    candleStickChart.maxValue = 340;
+    
+    candleStickChart.maxValue = 3400;
     candleStickChart.minValue = 220;
     candleStickChart.displayLongitudeTitle = YES;
     candleStickChart.displayLatitudeTitle = YES;
-    candleStickChart.axisMarginBottom = 12;
+    candleStickChart.axisMarginBottom = 12;//底部距离
     candleStickChart.maxSticksNum = 60;
     candleStickChart.axisMarginRight = 30;
     candleStickChart.axisMarginLeft = 2;

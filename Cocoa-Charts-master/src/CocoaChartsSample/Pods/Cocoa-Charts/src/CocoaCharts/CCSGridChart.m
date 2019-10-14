@@ -73,11 +73,11 @@
     [super initProperty];
 
     //初始化相关属性
-    self.axisXColor = [UIColor lightGrayColor];
-    self.axisYColor = [UIColor lightGrayColor];
-    self.borderColor = [UIColor lightGrayColor];
-    self.longitudeColor = [UIColor lightGrayColor];
-    self.latitudeColor = [UIColor lightGrayColor];
+    self.axisXColor = [UIColor orangeColor];//x轴
+    self.axisYColor = [UIColor orangeColor];
+    self.borderColor = [UIColor greenColor];//外边框
+    self.longitudeColor = [[UIColor alloc]initWithHue:125/255.0 saturation:125/255.0 brightness:0/255.0 alpha:1];//
+    self.latitudeColor = [[UIColor alloc]initWithHue:125/255.0 saturation:125/255.0 brightness:0/255.0 alpha:1];//
     self.longitudeFontColor = [UIColor lightGrayColor];
     self.latitudeFontColor = [UIColor lightGrayColor];
     self.dashCrossLines = YES;
@@ -147,16 +147,16 @@
     CGContextSetAllowsAntialiasing(context, YES);
 
     //绘制边框
-    [self drawBorder:rect];
+    //[self drawBorder:rect];
 
     //绘制XY轴
-    [self drawXAxis:rect];
+//    [self drawXAxis:rect];
 //    [self drawYAxis:rect];
 
     //绘制纬线
     [self drawLatitudeLines:rect];
     //绘制经线
-    [self drawLongitudeLines:rect];
+    //[self drawLongitudeLines:rect];
     //绘制数据
     [self drawData:rect];
     //绘制X轴标题
@@ -181,16 +181,16 @@
 
 
 - (void)drawXAxis:(CGRect)rect {
-    if (self.axisXPosition == CCSGridChartXAxisPositionBottom) {
+    if (self.axisXPosition == CCSGridChartXAxisPositionBottom) {//底部x轴
         CGContextRef context = UIGraphicsGetCurrentContext();
         CGContextSetLineWidth(context, 1.0f);
 
         CGContextMoveToPoint(context, 0.0f, rect.size.height - self.axisMarginBottom);
-        CGContextAddLineToPoint(context, rect.size.width, rect.size.height - self.axisMarginBottom);
+        CGContextAddLineToPoint(context, rect.size.width, rect.size.height - self.axisMarginBottom);//距离底部距离
 
         CGContextSetStrokeColorWithColor(context, self.axisXColor.CGColor);
         CGContextStrokePath(context);
-    } else {
+    } else {//顶部x轴
         CGContextRef context = UIGraphicsGetCurrentContext();
         CGContextSetLineWidth(context, 1.0f);
 
@@ -349,6 +349,7 @@
     }
 }
 
+//绘制经线
 - (void)drawLongitudeLines:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 0.5f);
@@ -375,10 +376,11 @@
     CCFloat postOffset;
     CCFloat offset;
     
-    
+    //步进offset
     postOffset = (rect.size.width - self.axisMarginLeft - self.axisMarginRight) / self.longitudeNum;
+    //左侧offset
     offset = self.axisMarginLeft;
-    
+    //NSLog(@"%f",self.axisMarginLeft);
     for (CCUInt i = 0; i <= self.longitudeNum ; i++) {
         if (self.axisXPosition == CCSGridChartXAxisPositionBottom) {
                 CGContextMoveToPoint(context, offset + i * postOffset, 0);
@@ -407,7 +409,8 @@
     if (self.displayLongitudeTitle == NO) {
         return;
     }
-    
+    //NSLog(@"%@",self.longitudeTitles[0]);
+    //longitudeTitles 拖拽过程中一直在变
     if ([self.longitudeTitles count] <= 0) {
         return;
     }
@@ -648,7 +651,7 @@
 
 
 CCFloat _startDistance = 0;
-CCFloat _minDistance = 8;
+CCFloat _minDistance = 8;//最小多少个像素的缩放发生变化
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //调用父类的触摸事件
@@ -656,12 +659,12 @@ CCFloat _minDistance = 8;
 
     NSArray *allTouches = [touches allObjects];
     //处理点击事件
-    if ([allTouches count] == 1) {
+    if ([allTouches count] == 1) {//点击
         //获取选中点
         self.singleTouchPoint = [[allTouches objectAtIndex:0] locationInView:self];
         //重绘
         [self setNeedsDisplay];
-    } else if ([allTouches count] == 2) {
+    } else if ([allTouches count] == 2) {//缩放
         CGPoint pt1 = [[allTouches objectAtIndex:0] locationInView:self];
         CGPoint pt2 = [[allTouches objectAtIndex:1] locationInView:self];
 
@@ -680,6 +683,7 @@ CCFloat _minDistance = 8;
     if ([allTouches count] == 1) {
         //获取选中点
         self.singleTouchPoint = [[allTouches objectAtIndex:0] locationInView:self];
+        //NSLog(@"%f",self.singleTouchPoint.x);
         //设置可滚动
         [self performSelector:@selector(setNeedsDisplay) withObject:nil afterDelay:0];
     } else if ([allTouches count] == 2) {

@@ -39,9 +39,9 @@
 
 
 - (void)initProperty {
-    //初始化父类的熟悉
+    //初始化父类的属性
     [super initProperty];
-
+    
     self.stickBorderColor = [UIColor yellowColor];
     self.stickFillColor = [UIColor yellowColor];
     self.maxSticksNum = 26;
@@ -57,13 +57,14 @@
     self.autoCalcRange = YES;
 }
 
-- (void)calcDataValueRange {
+- (void)calcDataValueRange1 {
     
     
     CCFloat maxValue = 0;
     CCFloat minValue = CCIntMax;
 
     CCSStickChartData *first = [self.stickData objectAtIndex:0];
+    //NSLog(@"%d",self.stickData.count);
     //第一个stick为停盘的情况
     if (first.high == 0 && first.low == 0) {
 
@@ -87,6 +88,7 @@
 
     self.maxValue = maxValue;
     self.minValue = minValue;
+    NSLog(@"%f",self.maxValue);
 }
 
 - (void)calcValueRangePaddingZero {
@@ -162,7 +164,7 @@
     if (self.stickData != NULL && [self.stickData count] > 0) {
 
         //计算数据的真实范围
-        [self calcDataValueRange];
+        [self calcDataValueRange1];
 
         //计算数据的真实范围
         [self calcValueRangePaddingZero];
@@ -271,8 +273,11 @@
 - (void)drawRect:(CGRect)rect {
     //初始化XY轴
     [self initAxisY];
+    
+    //计算x轴相关信息
     [self initAxisX];
 
+    //grid画线那取一些数据
     [super drawRect:rect];
 }
 

@@ -63,8 +63,8 @@ typedef enum {
  CCSGridChart是所有网格图表的基础类对象，它实现了基本的网格图表功能，这些功能将被它的继承类使用
  */
 @interface CCSGridChart : CCSBaseChartView {
-    NSMutableArray *_latitudeTitles;
-    NSMutableArray *_longitudeTitles;
+    NSMutableArray *_latitudeTitles;//纬度 纵坐标
+    NSMutableArray *_longitudeTitles;//经度 横坐标
     UIColor *_axisXColor;
     UIColor *_axisYColor;
     UIColor *_longitudeColor;
@@ -104,7 +104,7 @@ typedef enum {
     BOOL _displayYDegreeOnTouch;
     BOOL _autoCalcLatitudeTitle;
     BOOL _autoCalcLongitudeTitle;
-    CGPoint _singleTouchPoint;
+    CGPoint _singleTouchPoint;//------------------------
     
     NSMutableArray *_noneDisplayValues;
 

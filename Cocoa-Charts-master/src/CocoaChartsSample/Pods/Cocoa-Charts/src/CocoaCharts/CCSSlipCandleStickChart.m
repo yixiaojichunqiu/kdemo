@@ -122,6 +122,7 @@
     }
 }
 
+//x轴坐标计算longitudeTitles
 - (void)initAxisX {
     if (self.autoCalcLongitudeTitle == NO) {
         return;

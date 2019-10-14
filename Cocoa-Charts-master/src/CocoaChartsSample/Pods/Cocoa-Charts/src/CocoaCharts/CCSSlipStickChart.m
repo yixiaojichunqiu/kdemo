@@ -280,13 +280,13 @@
             if (fabs(pt1.x - _firstTouchPoint.x) < 4) {
                 //            _firstX = pt1.x;
                 if (_waitForLongPress) {
-                    NSLog(@"Waiting for LongPress");
+                    //NSLog(@"Waiting for LongPress");
                 }else{
                     _isLongPress = YES;
-                    NSLog(@"LongPress");
+                    //NSLog(@"LongPress");
                 }
             }else{
-                NSLog(@"Moved");
+                //NSLog(@"Moved");
 //                _firstX = pt1.x;
                 _waitForLongPress = NO;
                 _isMoved = YES;
@@ -382,7 +382,7 @@
 
     _flag = 1;
     
-    NSLog(@"end");
+    //NSLog(@"end");
     if(_isLongPress){
         if (self.chartDelegate && [self.chartDelegate respondsToSelector:@selector(CCSChartBeLongPressUp:)]) {
             [self.chartDelegate CCSChartBeLongPressUp:self];
@@ -579,6 +579,7 @@
     }
 }
 
+//放大
 - (void)zoomOut {
     if (self.displayNumber > self.minDisplayNumber) {
         
