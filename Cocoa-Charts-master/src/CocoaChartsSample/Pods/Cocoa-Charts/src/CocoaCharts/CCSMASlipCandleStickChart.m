@@ -89,6 +89,8 @@
 //}
 -(void) drawData:(CGRect)rect{
     [super drawData:rect];
+    
+    //均线
     if (self.displayNumber > self.maxDisplayNumberToLine) {
     }else{
         //在K线图上增加均线

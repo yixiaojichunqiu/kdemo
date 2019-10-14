@@ -211,7 +211,7 @@
     //调用父类的绘制方法
     [super drawData:rect];
     
-    
+    //三条布林线
     if (self.displayNumber > self.maxDisplayNumberToLine) {
     }else{
         if (self.bollingerBandData != NULL) {

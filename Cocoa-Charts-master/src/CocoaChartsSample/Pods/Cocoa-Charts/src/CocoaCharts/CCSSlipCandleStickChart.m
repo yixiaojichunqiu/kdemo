@@ -168,7 +168,7 @@
     if (self.displayNumber > self.maxDisplayNumberToLine) {
         [self drawDataAsLine:rect];
     }else{
-        //绘制数据
+        //绘制数据蜡烛
         [self drawSticks:rect];
     }
 }
