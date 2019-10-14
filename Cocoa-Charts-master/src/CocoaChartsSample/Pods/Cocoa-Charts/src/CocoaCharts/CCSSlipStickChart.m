@@ -543,6 +543,7 @@
     }
 }
 
+//每次调用 from减2 w相当于左移
 - (void) moveLeft {
     
     if (self.displayNumber < self.minDisplayNumber){
@@ -560,6 +561,7 @@
     
 }
 
+//每次调用 from加2 w相当于右移
 - (void) moveRight {
     
     if (self.displayNumber < self.minDisplayNumber){
@@ -586,6 +588,7 @@
         if (self.displayNumber == self.minDisplayNumber){
             
         }else {
+            //每被调用一次 displayNumber 数量减少2 绘制的控制开始displayFrom 加1
             CCInt resultDisplayNumber = self.displayNumber - 2;
             CCInt resultDisplayFrom = self.displayFrom + 2 / 2;
             
@@ -602,6 +605,7 @@
             }
         }
         
+        //边界处理
         //处理displayNumber越界
         if (self.displayNumber < self.minDisplayNumber) {
             self.displayNumber = self.minDisplayNumber;
