@@ -124,6 +124,8 @@ static CGFloat HSScaleFontSize = 10.0;
     }else{
         HSKLineNumberPerScreen = number;
     }
+    //改变一屏幕所盛放数量
+    NSLog(@"%f",HSKLineNumberPerScreen);
 }
 
 + (NSInteger)defaultKLineNumberPerScreen{

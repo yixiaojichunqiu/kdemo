@@ -129,6 +129,7 @@
 }
 
 #pragma mark Gestures
+//缩放操作
 - (void)pinchGestureInvoked:(UIPinchGestureRecognizer *)pinchGesture{
     //1. 缩放时先隐藏交叉线
     [self hideCrossLineView:YES];
