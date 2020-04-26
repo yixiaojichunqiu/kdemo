@@ -543,6 +543,8 @@
     }
 }
 
+///位移缩放代码位置
+
 //每次调用 from减2 w相当于左移
 - (void) moveLeft {
     
@@ -723,7 +725,8 @@
 }
 
 -(CCFloat) getDataStickWidth{
-    return (self.frame.size.width - self.axisMarginLeft - self.axisMarginRight) / [self getDataDisplayNumber];
+    //NSLog(@"%ld", _displayNumber);
+    return (self.frame.size.width - self.axisMarginLeft - self.axisMarginRight) / [self getDataDisplayNumber];//zoom时 displayNumber会变
 }
 
 -(void) bindSelectedIndex

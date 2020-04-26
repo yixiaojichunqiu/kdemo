@@ -32,6 +32,7 @@
     self.title = @"BOLL MA Slip Candle Stick Chart";
 }
 
+// 手机模拟器打开   BOLL MA Slip Candle Stick Chart
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
@@ -3102,9 +3103,9 @@
     //设置stickData 蜡烛
     candleStickChart.stickData = candlestickData;
     //ma5 ma10
-    candleStickChart.linesData = linesdata;
+    //candleStickChart.linesData = linesdata;
     //bol up down
-    candleStickChart.bollingerBandData = bollBanddata;
+    //candleStickChart.bollingerBandData = bollBanddata;
     
     candleStickChart.maxValue = 3400;
     candleStickChart.minValue = 220;

@@ -166,6 +166,7 @@
 
 -(void) drawData:(CGRect)rect{
     if (self.displayNumber > self.maxDisplayNumberToLine) {
+        //缩放到一定比例时 只绘制线
         [self drawDataAsLine:rect];
     }else{
         //绘制数据蜡烛
@@ -331,6 +332,7 @@
         CCFloat startX = super.axisMarginLeft + lineLength / 2;
         
         //遍历并绘制线条
+        //NSLog(@"%ld", _displayFrom);
         for (CCUInt j = self.displayFrom; j < [self getDisplayTo]; j++) {
             CCSCandleStickChartData *data = [self.stickData objectAtIndex:j];
             
